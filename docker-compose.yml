@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  main:
+    build: ./docker/main
+    ports:
+      - "80:80"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - ./src:/var/www/html
+    cap_add:
+      - "SYS_ADMIN"
